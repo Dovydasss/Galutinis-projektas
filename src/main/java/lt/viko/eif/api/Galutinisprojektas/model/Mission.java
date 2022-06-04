@@ -13,6 +13,6 @@ public class Mission {
     private String name;
     @Column(name = "teamId")
     private Integer teamId;
-    @Column(name = "Location")
-    private String Location;
+    @Column(name = "city")
+    private String city;
 }
