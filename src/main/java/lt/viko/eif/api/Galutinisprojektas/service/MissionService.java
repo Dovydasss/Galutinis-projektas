@@ -9,4 +9,5 @@ public interface MissionService {
     Mission saveMission(Mission mission);
     List<Mission> getAllMission();
     void deleteMission(long id);
+
 }
