@@ -9,6 +9,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * This class is an endpoint for accessing distance.
+ * It contains retrive method.
+ */
+
 @RestController
 @RequestMapping("/distance")
 public class DistanceController {
@@ -19,6 +24,12 @@ public class DistanceController {
     @Autowired
     private TeamService teamService;
 
+    /**
+     * Injects distanceMatrix instance.
+     *
+     * @param distanceMatrix interface for the service.
+     */
+
     public DistanceController(DistanceMatrix distanceMatrix) {
         this.distanceMatrix = distanceMatrix;
     }
@@ -28,11 +39,20 @@ public class DistanceController {
     private static final String start = "STARTING POINT: ";
     private static final String assigned = "ASSIGNED TEAM: ";
 
+
+    /**
+     * This method is an endpoint for retrieving distance between team city and mission city.
+     *
+     * @param teamid Team id
+     * @param missionid Mission id
+     * @return Response message, with status.
+     */
+
     @GetMapping("{teamid}/{missionid}")
     public ResponseEntity <String> calculate(@PathVariable long teamid, @PathVariable long missionid){
-        String City = teamService.getTeamCity(teamid).getCity().toString();
-        String TeamName = teamService.getTeamCity(teamid).getTeamName().toString();
-        String MissionCity = missionService.getMissionCity(missionid).getCity().toString();
+        String City = teamService.getTeamCity(teamid).getCity();
+        String TeamName = teamService.getTeamCity(teamid).getTeamName();
+        String MissionCity = missionService.getMissionCity(missionid).getCity();
         String Distance = distanceMatrix.getDistance(City, MissionCity);
 
         return new ResponseEntity<String>(String.format(

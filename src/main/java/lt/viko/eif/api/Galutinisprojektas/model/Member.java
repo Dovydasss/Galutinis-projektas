@@ -5,6 +5,10 @@ import lombok.Data;
 import javax.persistence.*;
 import java.sql.Date;
 
+/**
+ * Member model class.
+ */
+
 @Data
 @Entity
 public class Member {

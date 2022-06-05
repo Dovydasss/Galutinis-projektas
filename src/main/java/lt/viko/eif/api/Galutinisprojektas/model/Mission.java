@@ -4,6 +4,10 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+/**
+ * Mission model class.
+ */
+
 @Data
 @Entity
 public class Mission {
