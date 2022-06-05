@@ -2,6 +2,7 @@ package lt.viko.eif.api.Galutinisprojektas.service.impl;
 
 import lt.viko.eif.api.Galutinisprojektas.exception.ResourceNotFoundException;
 import lt.viko.eif.api.Galutinisprojektas.model.Mission;
+import lt.viko.eif.api.Galutinisprojektas.model.Team;
 import lt.viko.eif.api.Galutinisprojektas.repository.MissionRepository;
 import lt.viko.eif.api.Galutinisprojektas.service.MissionService;
 import org.springframework.stereotype.Service;
@@ -29,5 +30,12 @@ public class MissionServiceImpl implements MissionService {
     public void deleteMission(long id) {
         missionRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Mission", "id", id));
+    }
+
+    @Override
+    public Mission getMissionCity(long id){
+        Mission existingMission = missionRepository.findById(id).orElseThrow(() ->
+                new ResourceNotFoundException("Mission", "id", id));
+        return existingMission;
     }
 }

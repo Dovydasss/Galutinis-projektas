@@ -9,4 +9,6 @@ public interface MemberService {
     Member saveMember(Member member);
     List<Member> getAllMember();
     void deleteMember(long id);
+    Member getMemberbyId(long id);
+    Member updateMember(Member member, long id);
 }

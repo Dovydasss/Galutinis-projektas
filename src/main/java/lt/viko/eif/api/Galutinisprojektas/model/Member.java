@@ -18,4 +18,5 @@ public class Member {
     @Column(name = "birthDate")
     private Date birthDate;
 
+
 }

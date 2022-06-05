@@ -10,7 +10,6 @@ public interface TeamService {
     List<Team> getAllTeam();
     Team updateTeam(Team team, long id);
     void deleteTeam(long id);
-
-
+    Team getTeamCity(long id);
 
 }
