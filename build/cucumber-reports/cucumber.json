@@ -1,0 +1,71 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2022-06-04T13:50:46.270Z",
+        "line": 9,
+        "name": "Dummy Rest Api GET Missions",
+        "description": "",
+        "id": "dummy-rest-api-functionality-scenarios;dummy-rest-api-get-missions;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 4,
+            "name": "Get Call to \"/member\"",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 5,
+            "name": "Response Code \"200\" is validated",
+            "match": {},
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-06-04T13:50:46.376Z",
+        "line": 17,
+        "name": "Verify Code",
+        "description": "",
+        "id": "dummy-rest-api-functionality-scenarios;verify-code;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 12,
+            "name": "Get Call to \"/student\"",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 13,
+            "name": "Response  is array total \"18\"",
+            "match": {},
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Dummy Rest API Functionality Scenarios",
+    "description": "",
+    "id": "dummy-rest-api-functionality-scenarios",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/FeaturesTest/End2end_test.feature",
+    "tags": []
+  }
+]

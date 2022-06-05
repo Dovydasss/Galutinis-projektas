@@ -38,6 +38,7 @@ public class MemberController {
         return new ResponseEntity<Member>(memberService.saveMember(member), HttpStatus.CREATED);
     }
 
+
     /**
      * This method is an endpoint for getting all members from the database.
      *
@@ -47,6 +48,7 @@ public class MemberController {
     @GetMapping("/all")
     public List<Member> getAllMember(){
         return memberService.getAllMember();
+
     }
 
     /**

@@ -30,6 +30,7 @@ public class MissionServiceImpl implements MissionService {
     public void deleteMission(long id) {
         missionRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Mission", "id", id));
+
     }
 
     @Override
@@ -37,5 +38,6 @@ public class MissionServiceImpl implements MissionService {
         Mission existingMission = missionRepository.findById(id).orElseThrow(() ->
                 new ResourceNotFoundException("Mission", "id", id));
         return existingMission;
+
     }
 }

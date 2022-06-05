@@ -1,17 +1,22 @@
 package lt.viko.eif.api.Galutinisprojektas.model;
 
+import com.squareup.okhttp.*;
 import lombok.Data;
+import okio.*;
 
 import javax.persistence.*;
+import java.io.*;
 import java.sql.Date;
+
 
 /**
  * Member model class.
  */
 
 @Data
+
 @Entity
-public class Member {
+public class Member{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,6 +26,8 @@ public class Member {
     private String lastName;
     @Column(name = "birthDate")
     private Date birthDate;
+
+
 
 
 }
