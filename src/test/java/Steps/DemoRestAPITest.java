@@ -28,7 +28,7 @@ public class DemoRestAPITest {
 
         try {
             Request request = new Request.Builder()
-                    .url("http://localhost:8080/member")
+                    .url("http://localhost:8080/API/Galutinis/all")
                     .get()
                     .build();
 
@@ -79,99 +79,6 @@ public class DemoRestAPITest {
     public void AListOfTeamsIsDisplayed(){
         Assert.assertEquals(200, response.code());
     }
-
-    @When("The user sends POST request to the member endpoint")
-    public void theUserSendsPOSTRequestToTheMemberEndpoint()
-    {
-        RequestBody requestBody = new RequestBody() {
-            @Override
-            public MediaType contentType() {
-                return null;
-            }
-
-            @Override
-            public void writeTo(BufferedSink bufferedSink) throws IOException {
-
-            }
-        };
-
-        try {
-            Request request = new Request.Builder()
-                    .url("http://localhost:8080/member")
-                    .post(requestBody)
-                    .build();
-
-            this.response = client.newCall(request).execute();
-        } catch (IOException e) {
-            System.out.println("Unnsecsessful endpoint call " + e.getMessage());
-        }
-    }
-    @Then("A new POST of memeber is displayed")
-    public void ANewPOSTOfMemeberIsDisplayed(){
-        Assert.assertEquals(200, response.code());
-    }
-
-    @When("The user sends POST request to the team endpoint")
-    public void theUserSendsPOSTRequestToTheTeamEndpoint()
-    {
-        try {
-            RequestBody requestBody = new RequestBody() {
-                @Override
-                public MediaType contentType() {
-                    return null;
-                }
-
-                @Override
-                public void writeTo(BufferedSink bufferedSink) throws IOException {
-
-                }
-            };
-
-            Request request = new Request.Builder()
-                    .url("http://localhost:8080/team")
-                    .post(requestBody)
-                    .build();
-
-            this.response = client.newCall(request).execute();
-        } catch (IOException e) {
-            System.out.println("Unnsecsessful endpoint call " + e.getMessage());
-        }
-    }
-    @Then("A new POST of team is displayed")
-    public void ANewPOSTOfTeamIsDisplayed(){
-        Assert.assertEquals(200, response.code());
-    }
-
-    @When("The user sends POST request to the mission endpoint")
-    public void theUserSendsPOSTRequestToTheMessionEndpoint()
-    {
-        try {
-            RequestBody requestBody = new RequestBody() {
-                @Override
-                public MediaType contentType() {
-                    return null;
-                }
-
-                @Override
-                public void writeTo(BufferedSink bufferedSink) throws IOException {
-
-                }
-            };
-            Request request = new Request.Builder()
-                    .url("http://localhost:8080/member")
-                    .post(requestBody)
-                    .build();
-
-            this.response = client.newCall(request).execute();
-        } catch (IOException e) {
-            System.out.println("Unnsecsessful endpoint call " + e.getMessage());
-        }
-    }
-    @Then("A new POST of mission is displayed")
-    public void ANewPOSTOfMissionIsDisplayed(){
-        Assert.assertEquals(200, response.code());
-    }
-
 
 
 
