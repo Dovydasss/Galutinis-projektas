@@ -1,5 +1,6 @@
 package lt.viko.eif.api.Galutinisprojektas.controller;
 
+import lt.viko.eif.api.Galutinisprojektas.model.Team;
 import lt.viko.eif.api.Galutinisprojektas.service.DistanceMatrix;
 import lt.viko.eif.api.Galutinisprojektas.service.MissionService;
 import lt.viko.eif.api.Galutinisprojektas.service.TeamService;
@@ -22,13 +23,22 @@ public class DistanceController {
         this.distanceMatrix = distanceMatrix;
     }
 
-    private static final String template = "Atstumas: %s";
+    private static final String distance = "MISSION DISTANCE: %s";
+    private static final String objective = "OBJECTIVE: ";
+    private static final String start = "STARTING POINT: ";
+    private static final String assigned = "ASSIGNED TEAM: ";
 
     @GetMapping("{teamid}/{missionid}")
     public ResponseEntity <String> calculate(@PathVariable long teamid, @PathVariable long missionid){
         String City = teamService.getTeamCity(teamid).getCity().toString();
+        String TeamName = teamService.getTeamCity(teamid).getTeamName().toString();
         String MissionCity = missionService.getMissionCity(missionid).getCity().toString();
         String Distance = distanceMatrix.getDistance(City, MissionCity);
-        return new ResponseEntity<String>(String.format(template, Distance), HttpStatus.OK);
+
+        return new ResponseEntity<String>(String.format(
+                distance, Distance + "\n"
+                + objective + MissionCity + "\n"
+                + start + City + "\n"
+                        + assigned + TeamName), HttpStatus.OK);
     }
 }
