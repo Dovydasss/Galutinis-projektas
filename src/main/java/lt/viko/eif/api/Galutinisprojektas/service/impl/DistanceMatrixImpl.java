@@ -17,6 +17,7 @@ public class DistanceMatrixImpl implements DistanceMatrix {
 
     private static final String API_KEY = "AIzaSyCoSJSokY0_9zbSlTENypxPgXYn9PtecYs";
     String distance= null;
+    String time = null;
     public String getDistance(String teamCity, String missionCity) {
         try {
             var url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + teamCity + "&destinations=" + missionCity + "&key=" + API_KEY;
@@ -31,13 +32,15 @@ public class DistanceMatrixImpl implements DistanceMatrix {
             ja = (JSONArray) jo.get("elements");
             jo = (JSONObject) ja.get(0);
             JSONObject je = (JSONObject) jo.get("distance");
+            JSONObject jf = (JSONObject) jo.get("duration");
             String distance = "TEST";
             distance = (String) je.get("text");
-            return distance;
+            time=(String) jf.get("text");
+            return distance +". The time it will take to cover that distance by car: "+ time;
 
         } catch (Exception e) {
             System.out.println(e);
         }
-        return distance;
+        return distance + time;
     }
 }
