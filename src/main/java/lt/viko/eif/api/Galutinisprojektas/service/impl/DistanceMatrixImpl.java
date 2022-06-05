@@ -36,7 +36,7 @@ public class DistanceMatrixImpl implements DistanceMatrix {
             String distance = "TEST";
             distance = (String) je.get("text");
             time=(String) jf.get("text");
-            return distance +". The time it will take to cover that distance by car: "+ time;
+            return distance +". BY CAR IT WILL TAKE: "+ time;
 
         } catch (Exception e) {
             System.out.println(e);

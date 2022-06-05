@@ -34,7 +34,7 @@ public class TeamController {
      * @return Response message, with status.
      */
 
-    @PostMapping
+    @PostMapping("/new")
     public ResponseEntity<Team> saveTeam(@RequestBody Team team){
         return new ResponseEntity<Team>(teamService.saveTeam(team), HttpStatus.CREATED);
     }
@@ -45,7 +45,7 @@ public class TeamController {
      * @return returns all teams data.
      */
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Team> getAllTeam(){
         return teamService.getAllTeam();
     }
@@ -57,8 +57,8 @@ public class TeamController {
      * @return Response message, with status.
      */
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Team> updateTeam(@PathVariable("id") long id
+    @PutMapping
+    public ResponseEntity<Team> updateTeam(@RequestParam("id") long id
             , @RequestBody Team team){
         return new ResponseEntity<Team>(teamService.updateTeam(team, id), HttpStatus.OK);
     }
@@ -70,11 +70,9 @@ public class TeamController {
      * @return Response message, with status.
      */
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteTeam(@PathVariable("id") long id){
-
+    @DeleteMapping
+    public ResponseEntity<String> deleteTeam(@RequestParam("id") long id){
         teamService.deleteTeam(id);
-
         return new ResponseEntity<String>("Team deleted successfully!", HttpStatus.OK);
     }
 

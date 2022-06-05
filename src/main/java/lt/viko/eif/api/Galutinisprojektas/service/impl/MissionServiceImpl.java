@@ -1,6 +1,7 @@
 package lt.viko.eif.api.Galutinisprojektas.service.impl;
 
 import lt.viko.eif.api.Galutinisprojektas.exception.ResourceNotFoundException;
+import lt.viko.eif.api.Galutinisprojektas.model.Member;
 import lt.viko.eif.api.Galutinisprojektas.model.Mission;
 import lt.viko.eif.api.Galutinisprojektas.model.Team;
 import lt.viko.eif.api.Galutinisprojektas.repository.MissionRepository;
@@ -30,6 +31,19 @@ public class MissionServiceImpl implements MissionService {
     public void deleteMission(long id) {
         missionRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Mission", "id", id));
+    }
+
+    @Override
+    public Mission updateMission(Mission mission, long id){
+        //Check if it exists
+        Mission existingMission = missionRepository.findById(id).orElseThrow(() ->
+                new ResourceNotFoundException("Mission", "id", id));
+        //Overwrite the existing one
+        existingMission.setName(mission.getName());
+        existingMission.setCity(mission.getCity());
+        //Saving
+        missionRepository.save(existingMission);
+        return existingMission;
     }
 
     @Override

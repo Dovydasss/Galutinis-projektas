@@ -35,7 +35,7 @@ public class MissionController {
      * @return Response message, with status.
      */
 
-    @PostMapping
+    @PostMapping("/new")
     public ResponseEntity<Mission> saveMission(@RequestBody Mission mission){
         return new ResponseEntity<Mission>(missionService.saveMission(mission), HttpStatus.CREATED);
     }
@@ -46,7 +46,7 @@ public class MissionController {
      * @return returns all missions data.
      */
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Mission> getAllMission(){
         return missionService.getAllMission();
     }
@@ -57,9 +57,14 @@ public class MissionController {
      * @param id Mission id, thats gonna be deleted.
      * @return Response message, with status.
      */
+    @PutMapping
+    public ResponseEntity<Mission> updateMission(@RequestParam("id") long id,
+                                               @RequestBody Mission mission){
+        return new ResponseEntity<Mission>(missionService.updateMission(mission, id), HttpStatus.OK);
+    }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteMission(@PathVariable("id") long id){
+    @DeleteMapping
+    public ResponseEntity<String> deleteMission(@RequestParam("id") long id){
 
         missionService.deleteMission(id);
 

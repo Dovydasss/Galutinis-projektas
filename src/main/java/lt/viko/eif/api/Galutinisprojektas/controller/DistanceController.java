@@ -48,7 +48,7 @@ public class DistanceController {
      * @return Response message, with status.
      */
 
-    @GetMapping("{teamid}/{missionid}")
+    @GetMapping("/teamid/{teamid}/missionid/{missionid}")
     public ResponseEntity <String> calculate(@PathVariable long teamid, @PathVariable long missionid){
         String City = teamService.getTeamCity(teamid).getCity();
         String TeamName = teamService.getTeamCity(teamid).getTeamName();

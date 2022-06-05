@@ -36,7 +36,7 @@ public interface MissionService {
      * This method gets Mission city by mission id
      * @param id Mission id
      */
-
+    Mission updateMission(Mission mission, long id);
 
     Mission getMissionCity(long id);
 }

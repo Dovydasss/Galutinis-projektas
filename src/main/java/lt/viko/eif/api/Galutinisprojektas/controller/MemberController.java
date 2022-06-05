@@ -14,7 +14,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/API/Galutinis")
+@RequestMapping("/member")
 public class MemberController {
 
     private MemberService memberService;
@@ -56,7 +56,7 @@ public class MemberController {
      * @return Response message, with status.
      */
 
-    @GetMapping("/member")
+    @GetMapping
     public ResponseEntity<Member> getMemberbyId(@RequestParam("id") long memberId){
         return new ResponseEntity<Member>(memberService.getMemberbyId(memberId), HttpStatus.OK);
     }
@@ -68,8 +68,8 @@ public class MemberController {
      * @return Response message, with status.
      */
 
-    @DeleteMapping("/member/{id}")
-    public ResponseEntity<String> deleteMember(@PathVariable long id){
+    @DeleteMapping
+    public ResponseEntity<String> deleteMember(@RequestParam("id") long id){
         memberService.deleteMember(id);
         return new ResponseEntity<String>("Member deleted successfully!", HttpStatus.OK);
     }
@@ -81,7 +81,7 @@ public class MemberController {
      * @return Response message, with status.
      */
 
-    @PutMapping("/{id}")
+    @PutMapping
     public ResponseEntity<Member> updateMember(@RequestParam("id") long id,
         @RequestBody Member member){
         return new ResponseEntity<Member>(memberService.updateMember(member, id), HttpStatus.OK);

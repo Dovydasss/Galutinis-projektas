@@ -15,8 +15,6 @@ public class Mission {
     private Long id;
     @Column(name = "name")
     private String name;
-    @Column(name = "teamId")
-    private Integer teamId;
     @Column(name = "city")
     private String city;
 }
