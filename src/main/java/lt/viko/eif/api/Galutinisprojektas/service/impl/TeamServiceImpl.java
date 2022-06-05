@@ -9,6 +9,7 @@ import lt.viko.eif.api.Galutinisprojektas.service.TeamService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TeamServiceImpl implements TeamService {
@@ -48,13 +49,11 @@ public class TeamServiceImpl implements TeamService {
     public void deleteTeam(long id) {
     }
 
-
     @Override
     public Team getTeamCity(long id){
         Team existingTeam = teamRepository.findById(id).orElseThrow(() ->
                 new ResourceNotFoundException("Team", "id", id));
         return existingTeam;
     }
-
 
 }

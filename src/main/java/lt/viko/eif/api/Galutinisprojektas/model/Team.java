@@ -15,6 +15,8 @@ public class Team {
     private Long id;
     @Column(name = "teamName")
     private String teamName;
+    @Column(name = "city")
+    private String city;
     @Column(name = "member1")
     private Integer memberId1;
     @Column(name = "member2")

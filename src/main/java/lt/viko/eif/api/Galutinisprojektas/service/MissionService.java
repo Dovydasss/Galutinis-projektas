@@ -5,12 +5,10 @@ import lt.viko.eif.api.Galutinisprojektas.model.Mission;
 
 import java.util.List;
 
-
 /**
  * This interface is used for creating methods, which
  * execute basic operations to the database.
  */
-
 
 public interface MissionService {
 
@@ -20,11 +18,6 @@ public interface MissionService {
      * @param mission Mission object, which gonna be saved to db.
      */
     Mission saveMission(Mission mission);
-
-    List<Mission> getAllMission();
-    void deleteMission(long id);
-
-
 
     /**
      * This method gets all missions from the db.
@@ -46,5 +39,4 @@ public interface MissionService {
 
 
     Mission getMissionCity(long id);
-
 }

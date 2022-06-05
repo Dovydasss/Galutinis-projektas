@@ -39,13 +39,11 @@ public interface TeamService {
 
     void deleteTeam(long id);
 
-
     /**
      * This method gets Team city by team id
      * @param id Team id
      */
 
     Team getTeamCity(long id);
-
 
 }
