@@ -23,8 +23,7 @@ public class MemberController {
     }
 
     @GetMapping
-    public List<Member> getAllMember(){
-        return memberService.getAllMember();
+    public List<Member> getAllMember(){return memberService.getAllMember();
     }
 
     @DeleteMapping("{id}")
