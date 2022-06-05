@@ -1,6 +1,7 @@
 package lt.viko.eif.api.Galutinisprojektas.service.impl;
 
 import lt.viko.eif.api.Galutinisprojektas.exception.ResourceNotFoundException;
+import lt.viko.eif.api.Galutinisprojektas.model.Member;
 import lt.viko.eif.api.Galutinisprojektas.model.Team;
 import lt.viko.eif.api.Galutinisprojektas.repository.MemberRepository;
 import lt.viko.eif.api.Galutinisprojektas.repository.TeamRepository;
@@ -45,6 +46,15 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public void deleteTeam(long id) {
-
     }
+
+
+    @Override
+    public Team getTeamCity(long id){
+        Team existingTeam = teamRepository.findById(id).orElseThrow(() ->
+                new ResourceNotFoundException("Team", "id", id));
+        return existingTeam;
+    }
+
+
 }

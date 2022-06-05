@@ -9,6 +9,12 @@ import java.io.*;
 import java.sql.Date;
 
 
+/**
+ * Member model class.
+ */
+
+@Data
+
 @Entity
 public class Member{
     @Id
@@ -20,4 +26,8 @@ public class Member{
     private String lastName;
     @Column(name = "birthDate")
     private Date birthDate;
+
+
+
+
 }

@@ -4,6 +4,10 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+/**
+ * Team model class.
+ */
+
 @Data
 @Entity
 public class Team {

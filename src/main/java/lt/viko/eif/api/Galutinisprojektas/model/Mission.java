@@ -7,6 +7,13 @@ import okio.*;
 import javax.persistence.*;
 import java.io.*;
 
+
+/**
+ * Mission model class.
+ */
+
+@Data
+
 @Entity
 public class Mission{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
